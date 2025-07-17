@@ -1,0 +1,18 @@
+# Utiliser une image Python officielle légère
+FROM python:3.9-slim
+# Définir le dossier de travail dans le conteneur
+WORKDIR /app
+# Copier requirements.txt si tu en as un, sinon on installera Flask et joblib directement
+# COPY requirements.txt .
+
+# Installer les dépendances (Flask, scikit-learn, numpy, pandas)
+RUN pip install --no-cache-dir flask joblib scikit-learn numpy pandas
+
+# Copier tout le contenu local (ton code + model.pkl + scaler.save)
+COPY . .
+
+# Exposer le port 5000 (port Flask par défaut)
+EXPOSE 5000
+
+# Commande pour lancer ton application Flask
+CMD ["python", "api_prediction.py"]
