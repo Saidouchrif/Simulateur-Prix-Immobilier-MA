@@ -35,7 +35,7 @@ Ce projet vise à prédire le **prix de vente d’un bien immobilier au Maroc** 
 
 3. **Installer les dépendances** :
    ```bash
-   pip install -r requirements.txt
+   pip install -r README.txt
    ```
 
 ---
