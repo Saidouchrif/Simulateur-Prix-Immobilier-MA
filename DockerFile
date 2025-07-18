@@ -6,7 +6,7 @@ WORKDIR /app
 # COPY requirements.txt .
 
 # Installer les dépendances (Flask, scikit-learn, numpy, pandas)
-RUN pip install --no-cache-dir flask joblib scikit-learn numpy pandas
+RUN pip install --no-cache-dir flask joblib scikit-learn numpy pandas sklearn.model_selection lightgbm RUN pip install --no-cache-dir flask joblib scikit-learn numpy pandas sklearn.model_selection lightgbm xgboost 
 
 # Copier tout le contenu local (ton code + model.pkl + scaler.save)
 COPY . .
@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 5000
 
 # Commande pour lancer ton application Flask
-CMD ["python", "api_prediction.py"]
+CMD ["python", "api_prediction.py","test_model.py"]
